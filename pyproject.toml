@@ -10,3 +10,7 @@ dependencies = [
 
 [tool.flet]
 product = "Solar Meter"
+
+[tool.flet.app]
+path = "."
+module = "main"
