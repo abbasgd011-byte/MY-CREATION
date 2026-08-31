@@ -9,14 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       - name: Build Android APK
         uses: flet-dev/flet-build-action@v1
         with:
           target: apk
           runner-python-version: '3.11'
-
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: SolarMeterApp
-          path: build/apk/**/*.apk
+          bundled-python-version: '3.11'
