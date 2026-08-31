@@ -1,4 +1,5 @@
 name: Build Android APK
+
 on:
   workflow_dispatch:
 
@@ -7,20 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Setup Python
-        uses: actions/setup-python@v5
+
+      - name: Build Android APK
+        uses: flet-dev/flet-build-action@v1
         with:
-          python-version: '3.11'
-          
-      - name: Install Flet
-        run: pip install flet
-        
-      - name: Build APK
-        run: flet build apk --yes
-        
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: SolarMeterApp
-          path: build/apk/**/*.apk
+          target: apk
+          runner-python-version: '3.11'
+          bundled-python-version: '3.11'
