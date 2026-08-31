@@ -8,7 +8,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Build APK
-        uses: flet-dev/flet-build-action@v1
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          target: apk
+          python-version: '3.11'
+          
+      - name: Install Flet
+        run: pip install flet
+        
+      - name: Build APK
+        run: flet build apk --yes
+        
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: SolarMeterApp
+          path: build/apk/**/*.apk
