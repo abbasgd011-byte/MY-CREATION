@@ -1,0 +1,12 @@
+[project]
+name = "solarmeter"
+version = "1.0.0"
+description = "Solar Meter Monitor"
+requires-python = ">=3.11"
+dependencies = [
+    "requests",
+    "flet"
+]
+
+[tool.flet]
+product = "Solar Meter"
